@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="Author" content="Víctor Wang">
+ <title>Document</title>
+ <script src="https://kit.fontawesome.com/ff7fcb0371.js"></script>
+</head>
+<body>
+    <div id="mi-div">
+
+    </div>
+    <script>
+        var pelis = '[{"Nombre": "El señor de los anillos","Genero": "Acción"}, {"Nombre": "Regreso al Futuro","Genero": "Acción"},{"Nombre": "Los increibles 2","Genero": "Animación"},{"Nombre": "Star Wars","Genero": "Ciencia Ficción"},{"Nombre": "Al Filo del Mañana","Genero": "Ciencia Ficción"},{"Nombre": "Corazón de acero","Genero": "Acción"},{"Nombre": "Venom","Genero": "Superhéroes"},{"Nombre": "Superman","Genero": "Superhéroes"},{"Nombre": "Spiderman","Genero": "Superhéroes"},{"Nombre": "Ironman","Genero": "Superhéroes"},{"Nombre": "Fast & Furious","Genero": "Acción"},{"Nombre": "Trascendence","Genero": "Ciencia Ficción"},{"Nombre": "Pretty Woman","Genero": "Romance"},{"Nombre": "Dos rubias de pelo en pecho","Genero": "Comedia"},{"Nombre": "Jumanji","Genero": "Acción"},{"Nombre": "Piratas del Caribe","Genero": "Acción"},{"Nombre": "Frozen","Genero": "Animación"},{"Nombre": "Toy story","Genero": "Animación"},{"Nombre": "Yo robot","Genero": "Ciencia Ficción"},{"Nombre": "La vida es bella","Genero": "Comedia"},{"Nombre": "Matrix","Genero": "Ciencia Ficción"},{"Nombre": "Origen","Genero": "Ciencia Ficción"},{"Nombre": "E.T. el extraterrestre","Genero": "Ciencia Ficción"},{"Nombre": "King Kong", "Genero": "Acción"},{"Nombre": "Zootrópolis","Genero": "Animación"},{"Nombre": "El rey león","Genero": "Animación"},{"Nombre": "El viaje de Chihiro","Genero": "Animación"}]';
+
+        var listaPelis = JSON.parse(pelis);
+
+        var bloque = document.querySelector("#mi-div");
+
+        var titulo = document.createElement("h1");
+
+        titulo.textContent="Mis Películas";
+
+        bloque.appendChild(titulo);
+
+        var lista = document.createElement("ul");
+
+        bloque.appendChild(lista);
+
+        for(let j = 0; j < listaPelis.length; j++) {
+
+            var icono = document.createElement("i");
+        
+            if(listaPelis[j].Genero == "Acción") {
+                icono.setAttribute("class","fas fa-car-crash");
+            } else if(listaPelis[j].Genero === "Animación") {
+                icono.setAttribute("class","fas fa-snowman");
+
+            }else if(listaPelis[j].Genero === "Ciencia Ficción") {
+                icono.setAttribute("class","fab fa-galactic-senate");
+
+            }else if(listaPelis[j].Genero === "Superhéroes") {
+                icono.setAttribute("class","fas fa-meteor");
+
+            }else if(listaPelis[j].Genero === "Romance") {
+                icono.setAttribute("class","fas fa-heart");
+
+            }else if(listaPelis[j].Genero === "Comedia") {
+                icono.setAttribute("class","fas fa-grin-squint-tears");
+            }
+
+            var item = document.createElement("li");
+
+            item.appendChild(icono);
+
+            var texto = document.createElement("span");
+
+            texto = document.createTextNode(" " + listaPelis[j].Nombre + " es del género " + listaPelis[j].Genero + " ");
+           
+            item.appendChild(texto);
+
+            lista.appendChild(item);
+        }
+    </script>
+</body>
+</html>
+
+
+
